@@ -2,6 +2,7 @@ package com.alebit.jelsongname.songname;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.*;
 
 public class ElsSongList implements SongList {
@@ -19,10 +20,18 @@ public class ElsSongList implements SongList {
         songList[index - 1] = song;
     }
 
+    @Override
+    public void write(OutputStream outputStream) throws IOException {
+        outputStream.write(toString().getBytes("SHIFT-JIS"));
+        outputStream.flush();
+    }
+
+    @Override
     public void write(String directoryPath) {
         writeToFile(directoryPath + File.separator + "ELS_SONG.NAM");
     }
 
+    @Override
     public void writeToFile(String filename) {
         Path path = Paths.get(filename);
         try {

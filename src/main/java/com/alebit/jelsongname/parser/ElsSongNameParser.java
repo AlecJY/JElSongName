@@ -2,15 +2,27 @@ package com.alebit.jelsongname.parser;
 
 import com.alebit.jelsongname.songname.ElsSongList;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.StringTokenizer;
 
 public class ElsSongNameParser implements SongNameParser {
+    public ElsSongList parse(InputStream inputStream) throws SongNameFileIOException, SongNameFileParseException {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int read;
+        try {
+            while ((read = inputStream.read(buffer)) > 1) {
+                outputStream.write(buffer, 0, read);
+            }
+        } catch (IOException e) {
+            throw new SongNameFileIOException();
+        }
+        return parseBytes(outputStream.toByteArray());
+    }
+
     public ElsSongList parse(String directoryPath) throws SongNameFileIOException, SongNameFileParseException {
         return parseFile(directoryPath + File.separator + "ELS_SONG.NAM");
     }
@@ -26,6 +38,10 @@ public class ElsSongNameParser implements SongNameParser {
         } catch (IOException e) {
             throw new SongNameFileIOException();
         }
+        return parseBytes(songNameBytes);
+    }
+
+    private ElsSongList parseBytes(byte[] songNameBytes) throws SongNameFileParseException {
         String songNameStr;
         try {
             songNameStr = new String(songNameBytes, "SHIFT-JIS");
