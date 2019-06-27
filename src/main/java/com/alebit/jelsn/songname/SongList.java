@@ -1,7 +1,5 @@
 package com.alebit.jelsn.songname;
 
-import java.util.ArrayList;
-
 public interface SongList {
     public Song getSong(int index);
 
