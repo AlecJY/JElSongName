@@ -1,4 +1,4 @@
-package com.alebit.jelsn.songname;
+package com.alebit.jelsongname.songname;
 
 import java.io.File;
 import java.io.IOException;

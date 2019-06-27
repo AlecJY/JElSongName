@@ -1,4 +1,4 @@
-package com.alebit.jelsn.parser;
+package com.alebit.jelsongname.parser;
 
 public class SongNameFileParseException extends Exception {
 }

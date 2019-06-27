@@ -1,4 +1,4 @@
-group 'com.alebit.jelsn'
+group 'com.alebit.jelsongname'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'

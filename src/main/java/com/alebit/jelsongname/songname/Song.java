@@ -1,4 +1,4 @@
-package com.alebit.jelsn.songname;
+package com.alebit.jelsongname.songname;
 
 public interface Song {
     public void setSongName(String songName);

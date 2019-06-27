@@ -1,4 +1,4 @@
-package com.alebit.jelsn.songname;
+package com.alebit.jelsongname.songname;
 
 public class ElSong implements Song {
     protected String songName = "";

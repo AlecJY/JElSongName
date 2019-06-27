@@ -1,6 +1,6 @@
-package com.alebit.jelsn.parser;
+package com.alebit.jelsongname.parser;
 
-import com.alebit.jelsn.songname.ElsSongList;
+import com.alebit.jelsongname.songname.ElsSongList;
 
 import java.io.File;
 import java.io.IOException;

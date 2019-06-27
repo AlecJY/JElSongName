@@ -1,4 +1,4 @@
-package com.alebit.jelsn.songname;
+package com.alebit.jelsongname.songname;
 
 public interface SongList {
     public Song getSong(int index);
