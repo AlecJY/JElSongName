@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class ElSongList implements SongList {
-    ElSong[] songList = new ElSong[40];
+    protected ElSong[] songList = new ElSong[40];
 
     @Override
     public ElSong getSong(int index) {
