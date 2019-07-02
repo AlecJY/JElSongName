@@ -7,6 +7,23 @@ A Java Electone song name parser library for Electone EL and ELS Series
 * SONG.NAM
 * ELS_SONG.NAM
 
+## Using JELSongName
+JELSongName is now uploaded to Maven Central
+
+### Maven
+```xml
+<dependency>
+    <groupId>com.alebit.jelsongname</groupId>
+    <artifactId>jelsongname</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+
+### Gradle
+```groovy
+compile group: 'com.alebit.jelsongname', name: 'jelsongname', version: '1.0'
+```
+
 ## Getting Started
 Parse a ELS song name file and print the first song's name.
 ```java
