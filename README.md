@@ -15,13 +15,13 @@ JELSongName is now uploaded to Maven Central
 <dependency>
     <groupId>com.alebit.jelsongname</groupId>
     <artifactId>jelsongname</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 
 ### Gradle
 ```groovy
-compile group: 'com.alebit.jelsongname', name: 'jelsongname', version: '1.0'
+compile group: 'com.alebit.jelsongname', name: 'jelsongname', version: '1.1'
 ```
 
 ## Getting Started
