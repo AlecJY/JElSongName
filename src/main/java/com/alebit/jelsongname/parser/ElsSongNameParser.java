@@ -1,5 +1,6 @@
 package com.alebit.jelsongname.parser;
 
+import com.alebit.jelsongname.songname.ElsSong;
 import com.alebit.jelsongname.songname.ElsSongList;
 
 import java.io.*;
@@ -65,6 +66,10 @@ public class ElsSongNameParser implements SongNameParser {
                 songNum = Integer.parseInt(songNumStr.substring(1));
             } catch (Exception e) {
                 throw new SongNameFileParseException();
+            }
+
+            if (elsSongList.getSong(songNum) == null) {
+                elsSongList.setSong(songNum, new ElsSong());
             }
 
             String songInfoName = tokenizer.nextToken("=").substring(1).trim();
