@@ -13,10 +13,16 @@ public class ElSongList implements SongList {
 
     @Override
     public ElSong getSong(int index) {
+        if (index > 40 || index < 1) {
+            throw new SongListIndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 40.");
+        }
         return songList[index - 1];
     }
 
     public void setSong(int index, ElSong song) {
+        if (index > 40 || index < 1) {
+            throw new SongListIndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 40.");
+        }
         songList[index - 1] = song;
     }
 
