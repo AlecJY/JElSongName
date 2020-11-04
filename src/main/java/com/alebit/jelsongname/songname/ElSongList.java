@@ -49,10 +49,10 @@ public class ElSongList implements SongList {
 
     @Override
     public String toString() {
-        StringBuilder songNameBilder = new StringBuilder();
+        StringBuilder songNameBuilder = new StringBuilder();
         for (ElSong song: songList) {
-            songNameBilder.append(String.format("%1$-17s", song.getSongName()) + "\r\n");
+            songNameBuilder.append(String.format("%1$-17s", song.getSongName()) + "\r\n");
         }
-        return songNameBilder.toString();
+        return songNameBuilder.toString();
     }
 }
