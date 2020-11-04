@@ -64,12 +64,24 @@ public class ElsSongList implements SongList {
                     songListBuilder.append(infoLine(i + 1, "MIDFILE", songList[i].getMidFile()));
                 }
                 for (int j = 0; j < songList[i].blkFile.length; j++) {
-                    if (!songList[i].getBlkFile(j + 1).equals("")) {
+                    if (songList[i].getBlkFile(j + 1) != null) {
                         songListBuilder.append(infoLine(i + 1, "BLKFILE_" + String.format("%03d", j + 1), songList[i].getBlkFile(j + 1)));
                     }
                 }
                 if (songList[i].getSecurity()) {
-                    songListBuilder.append(infoLine(i + 1, "SECFILE", songList[i].getSecFile()));
+                    String secFile = songList[i].getSecFile();
+                    for (int j = 2; j <= songList[i].secFile.length; j++) {
+                        if (songList[i].getSecFile(j) != null) {
+                            if (secFile != null) {
+                                songListBuilder.append(infoLine(i + 1, "SECFILE_" + String.format("%03d", 1), secFile));
+                                secFile = null;
+                            }
+                            songListBuilder.append(infoLine(i + 1, "SECFILE_" + String.format("%03d", j), songList[i].getSecFile(j)));
+                        }
+                    }
+                    if (secFile != null) {
+                        songListBuilder.append(infoLine(i + 1, "SECFILE", secFile));
+                    }
                 }
             }
         }

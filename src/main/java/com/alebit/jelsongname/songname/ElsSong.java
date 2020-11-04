@@ -14,13 +14,7 @@ public class ElsSong implements Song {
     protected boolean partXg;
     protected String midFile = "";
     protected String[] blkFile = new String[999];
-    protected String secFile = "";
-
-    public ElsSong() {
-        for (int i = 0; i < 999; i++) {
-            blkFile[i] = "";
-        }
-    }
+    protected String[] secFile = new String[999];
 
     @Override
     public void setSongName(String songName) {
@@ -129,10 +123,18 @@ public class ElsSong implements Song {
     }
 
     public void setSecFile(String secFile) {
-        this.secFile = secFile;
+        setSecFile(1, secFile);
+    }
+
+    public void setSecFile(int index, String secFile) {
+        this.secFile[index - 1] = secFile;
     }
 
     public String getSecFile() {
-        return secFile;
+        return getSecFile(1);
+    }
+
+    public String getSecFile(int index) {
+        return secFile[index - 1];
     }
 }

@@ -74,13 +74,29 @@ public class ElsSongNameParser implements SongNameParser {
 
             String songInfoName = tokenizer.nextToken("=").substring(1).trim();
             String songInfo = tokenizer.nextToken("\r\n").substring(2).trim();
-            int blkNum = 0;
+            int blkNum = 1;
+            int secNum = 1;
             if (songInfoName.startsWith("BLKFILE")) {
                 try {
                     blkNum = Integer.parseInt(songInfoName.substring(8));
                     songInfoName = "BLKFILE";
+                    if (blkNum > 999 || blkNum < 1) {
+                        throw new SongNameFileParseException();
+                    }
                 } catch (Exception e) {
                     throw new SongNameFileParseException();
+                }
+            } else if (songInfoName.startsWith("SECFILE")) {
+                if (!songInfoName.equals("SECFILE")) {
+                    try {
+                        secNum = Integer.parseInt(songInfoName.substring(8));
+                        songInfoName = "SECFILE";
+                        if (secNum > 999 || secNum < 1) {
+                            throw new SongNameFileParseException();
+                        }
+                    } catch (Exception e) {
+                        throw new SongNameFileParseException();
+                    }
                 }
             }
             switch (songInfoName) {
@@ -130,7 +146,7 @@ public class ElsSongNameParser implements SongNameParser {
                     elsSongList.getSong(songNum).setBlkFile(blkNum, songInfo);
                     break;
                 case "SECFILE":
-                    elsSongList.getSong(songNum).setSecFile(songInfo);
+                    elsSongList.getSong(songNum).setSecFile(secNum, songInfo);
                     break;
                 default:
                     System.err.println(songInfoName);
