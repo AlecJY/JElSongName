@@ -9,16 +9,16 @@ public class ElsSongList implements SongList {
     protected ElsSong[] songList = new ElsSong[999];
 
     @Override
-    public ElsSong getSong(int index) throws SongListIndexOutOfBoundsException {
+    public ElsSong getSong(int index) {
         if (index > 999 || index < 1) {
-            throw new SongListIndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 999.");
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 999.");
         }
         return songList[index - 1];
     }
 
     public void setSong(int index, ElsSong song) {
         if (index > 999 || index < 1) {
-            throw new SongListIndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 999.");
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 999.");
         }
         songList[index - 1] = song;
     }

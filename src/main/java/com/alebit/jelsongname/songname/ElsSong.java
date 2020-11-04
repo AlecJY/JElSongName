@@ -115,10 +115,16 @@ public class ElsSong implements Song {
     }
 
     public void setBlkFile(int index, String filename) {
+        if (index > 999 || index < 1) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 999.");
+        }
         blkFile[index-1] = filename;
     }
 
     public String getBlkFile(int index) {
+        if (index > 999 || index < 1) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 999.");
+        }
         return blkFile[index - 1];
     }
 
@@ -127,6 +133,9 @@ public class ElsSong implements Song {
     }
 
     public void setSecFile(int index, String secFile) {
+        if (index > 999 || index < 1) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 999.");
+        }
         this.secFile[index - 1] = secFile;
     }
 
@@ -135,6 +144,9 @@ public class ElsSong implements Song {
     }
 
     public String getSecFile(int index) {
+        if (index > 999 || index < 1) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds. It should be between 1 and 999.");
+        }
         return secFile[index - 1];
     }
 }
