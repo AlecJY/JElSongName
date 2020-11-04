@@ -61,6 +61,10 @@ public class ElsSongNameParser implements SongNameParser {
                 continue;
             }
 
+            if (!songNumStr.startsWith("S")) {
+                throw new SongNameFileParseException();
+            }
+
             int songNum;
             try {
                 songNum = Integer.parseInt(songNumStr.substring(1));
