@@ -1,5 +1,5 @@
 # JElSongName
-[![Build Status](https://travis-ci.org/AlecJY/JElSongName.svg?branch=master)](https://travis-ci.org/AlecJY/JElSongName)
+[![Build Status](https://github.com/AlecJY/JElSongName/actions/workflows/gradle.yml/badge.svg)](https://github.com/AlecJY/JElSongName/actions/workflows/gradle.yml)
 
 A Java Electone song name parser library for Electone EL and ELS Series 
 
